@@ -1,8 +1,9 @@
 import "../styles/globals.css";
+import { Fragment } from "react";
 
 export default function MyApp({ Component, pageProps }) {
   return (
-    <>
+    <Fragment>
       <header>
         <nav>
           <ul>
@@ -23,6 +24,6 @@ export default function MyApp({ Component, pageProps }) {
       <footer>
         <p>By Harry</p>
       </footer>
-    </>
+    </Fragment>
   );
 }
