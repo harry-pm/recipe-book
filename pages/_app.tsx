@@ -1,5 +1,6 @@
 import "../styles/globals.css";
 import { Fragment } from "react";
+import "reflect-metadata";
 
 export default function MyApp({ Component, pageProps }) {
   return (

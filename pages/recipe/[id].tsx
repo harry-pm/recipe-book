@@ -1,11 +1,16 @@
 import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { Fragment } from "react";
+import { getOrCreateConnection } from "../../utils";
+import { Recipe } from "../../models/recipe.model";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
-  const { id } = context.params; 
+  const { id } = context.params;
 
-  const res = await fetch(`https://jsonplaceholder.typicode.com/posts/${id}`);
-  const recipe = (await res.json()) as Recipe;
+  const conn = await getOrCreateConnection();
+  const recipeRepo = conn.getRepository<Recipe>("Recipe");
+  const recipe = JSON.stringify(
+    await recipeRepo.findOneOrFail(parseInt(id as string))
+  );
   return {
     props: { recipe }
   };
@@ -14,10 +19,11 @@ export async function getServerSideProps(context: GetServerSidePropsContext) {
 export default function RecipeDetailPage({
   recipe
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
+  const recipeObj = JSON.parse(recipe) as Recipe;
   return (
     <Fragment>
-      <h1>{recipe.title}</h1>
-      <p>{recipe.body}</p>
+      <h1>{recipeObj.title}</h1>
+      <p>{recipeObj.body}</p>
     </Fragment>
   );
 }

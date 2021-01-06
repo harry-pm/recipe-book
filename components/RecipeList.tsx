@@ -1,5 +1,6 @@
 import { Fragment } from "react";
 import { RecipeListItem } from "./RecipeListItem";
+import { Recipe } from '../models/recipe.model';
 
 type Props = {
   recipes: Recipe[];
