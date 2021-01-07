@@ -26,3 +26,6 @@ ingredients: text
 steps: text 
 
 ingredients and steps are entered as a comma separated string and received as an array of strings, where each string in the array ends at where a comma was entered
+
+### Blockers ###
+- Generating a key for ingredients and steps list. I discovered that it is not best practise to generate an index that will not always be unique to the data that is being iterated. Solution may be to restructure the db.

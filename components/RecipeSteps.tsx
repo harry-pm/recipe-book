@@ -1,14 +1,16 @@
-import { Fragment } from "react";
+import { Recipe } from '../models/recipe.model';
 
-function RecipeSteps({recipe}){
+type Props = {
+  recipe: Recipe
+};
+
+const RecipeSteps: React.FC<Props> = ({ recipe }) => {
   return (
-    <Fragment>
-        <ol>
-            {recipe.steps.map(s =>
-            <li>{s}</li>    
-            )}
-        </ol>
-    </Fragment>
+    <ol>
+      {recipe.steps.map(s =>
+        <li>{s}</li>    
+      )}
+    </ol>
   );
 };
 

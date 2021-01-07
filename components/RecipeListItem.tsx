@@ -6,17 +6,17 @@ type Props = {
 };
   
 const RecipeListItem: React.FC<Props> = ({ recipe }) => {
-    return (
-        <Link href="/recipe/[id]" as={`/recipe/${recipe.id}`}>
-            <a>
-                <article>
-                    <div>
-                        <span>{recipe.title}</span>
-                    </div>
-                </article>
-            </a>
-        </Link>
-    );
+  return (
+    <Link href="/recipe/[id]" as={`/recipe/${recipe.id}`}>
+      <a>
+        <article>
+          <div>
+            <span>{recipe.title}</span>
+          </div>
+        </article>
+      </a>
+    </Link>  
+  );
 };
 
 export { RecipeListItem };
