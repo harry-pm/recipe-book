@@ -21,6 +21,8 @@ To first run the app with docker locally (optional), run:
 
 ### Data structure in database ###
 id: integer
-title: string, length 256
-ingredients: simple-array, string[] - CAN STORE PRIMITVE ARRAY VALUES ONLY, NO COMMAS!
-steps: simple-array, string[] - CAN STORE PRIMITVE ARRAY VALUES ONLY, NO COMMAS!
+title: character varying(256)
+ingredients: text 
+steps: text 
+
+ingredients and steps are entered as a comma separated string and received as an array of strings, where each string in the array ends at where a comma was entered

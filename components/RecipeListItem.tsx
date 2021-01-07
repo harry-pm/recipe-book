@@ -2,7 +2,7 @@ import Link from "next/link";
 import { Recipe } from '../models/recipe.model';
 
 type Props = {
-    recipe: Recipe;
+  recipe: Recipe;
 };
   
 const RecipeListItem: React.FC<Props> = ({ recipe }) => {
@@ -17,6 +17,6 @@ const RecipeListItem: React.FC<Props> = ({ recipe }) => {
             </a>
         </Link>
     );
-    };
+};
 
 export { RecipeListItem };

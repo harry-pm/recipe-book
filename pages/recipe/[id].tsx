@@ -2,6 +2,8 @@ import { GetServerSidePropsContext, InferGetServerSidePropsType } from "next";
 import { Fragment } from "react";
 import { getOrCreateConnection } from "../../utils";
 import { Recipe } from "../../models/recipe.model";
+import { IngredientsList } from "../../components/IngredientsList";
+import { RecipeSteps } from "../../components/RecipeSteps";
 
 export async function getServerSideProps(context: GetServerSidePropsContext) {
   const { id } = context.params;
@@ -23,7 +25,8 @@ export default function RecipeDetailPage({
   return (
     <Fragment>
       <h1>{recipeObj.title}</h1>
-      <p>{recipeObj.body}</p>
+      <IngredientsList recipe={recipeObj}></IngredientsList>
+      <RecipeSteps recipe={recipeObj}></RecipeSteps>
     </Fragment>
   );
 }
