@@ -2,7 +2,7 @@ version: '3.8'
 services:
   pg:
     image: "postgres:alpine"
-    container_name: "next-db"
+    container_name: "recipe-book-db"
     env_file:
       - ".env"
     ports:

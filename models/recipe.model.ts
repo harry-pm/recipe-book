@@ -6,8 +6,8 @@ export class Recipe {
   id: number;
   @Column({ length: 256 })
   title: string;
-  @Column("simple-array")
-  ingredients: string[];
-  @Column("simple-array")
-  steps: string[];
+  @Column("simple-json")
+  ingredients: {int: string};
+  @Column("simple-json")
+  steps: {int: string};
 }

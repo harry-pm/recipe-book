@@ -4,8 +4,8 @@
 - clone repo
 - npm install
 - setup database with docker, run: 'docker-compose up -d'
+- run: 'npm run dev' and visit localhost:3000. A connection with the database will be established and typeORM will have created a table in the database.
 - (to access database, run: 'psql -h localhost -p 5555 -U user -d db', then enter the password: "password")
-- run: 'npm run dev'
 
 ### Steps for deployment ###
 The app is deployed on google cloud using docker.
@@ -27,5 +27,8 @@ steps: text
 
 ingredients and steps are entered as a comma separated string and received as an array of strings, where each string in the array ends at where a comma was entered
 
-### Blockers ###
-- Generating a key for ingredients and steps list. I discovered that it is not best practise to generate an index that will not always be unique to the data that is being iterated. Solution may be to restructure the db.
+### Blockers/Learning points ###
+- Generating a key for ingredients and steps list. I discovered that it is not best practise to generate an index that will not always be unique to the data that is being iterated. My solution was to restructure the databse so that any item that would be iterated has a unique id.
+
+- Following the previous comment, after running docker-compose with a new databse and data model, docker skipped some initialiation steps: 'PostgreSQL Database directory appears to contain a database; Skipping initialization'. I learnt that unless the database directory is empty, docker will skip initialisation. Deleting the volume then running it again solved this issue. 
+Alternativley, when restructuring the database, rather than creating a new one, I could have modified the table using SQL commands.

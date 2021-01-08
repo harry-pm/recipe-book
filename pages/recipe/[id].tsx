@@ -22,10 +22,11 @@ export default function RecipeDetailPage({
   recipe
 }: InferGetServerSidePropsType<typeof getServerSideProps>) {
   const recipeObj = JSON.parse(recipe) as Recipe;
+  const ingredients = recipeObj.ingredients;
   return (
     <Fragment>
       <h1>{recipeObj.title}</h1>
-      <IngredientsList recipe={recipeObj}></IngredientsList>
+      <IngredientsList ingredients={ingredients}></IngredientsList>
       <RecipeSteps recipe={recipeObj}></RecipeSteps>
     </Fragment>
   );

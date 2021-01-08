@@ -1,16 +1,24 @@
 import { Recipe } from '../models/recipe.model';
+import { Fragment } from "react";
 
 type Props = {
-  recipe: Recipe
+  ingredients: Recipe["ingredients"] 
 };
 
-const IngredientsList: React.FC<Props> = ({ recipe }) => {
+const IngredientsList: React.FC<Props> = ({ ingredients }) => {
+  const arr = []
+  Object.entries(ingredients).forEach(([key, value]) => {
+    arr.push([key, value])
+  });
+
   return (
-    <ul>
-      {recipe.ingredients.map(i =>
-        <li>{i}</li>    
-      )}
-    </ul>
+    <Fragment>
+      <ul>
+        {arr.map(([key, value]) =>(
+          <li key={key}>{value}</li>
+        ))}
+      </ul>
+    </Fragment>
   );
 };
 

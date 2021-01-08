@@ -7,9 +7,9 @@ type Props = {
 const RecipeSteps: React.FC<Props> = ({ recipe }) => {
   return (
     <ol>
-      {recipe.steps.map(s =>
-        <li>{s}</li>    
-      )}
+      
+        <li></li>    
+      
     </ol>
   );
 };
