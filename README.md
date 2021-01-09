@@ -21,11 +21,10 @@ To first run the app with docker locally (optional), run:
 
 ### Data structure in database ###
 id: integer
-title: character varying(256)
-ingredients: text 
-steps: text 
+title: string (256)
+ingredients: {string: string} *object of key value pairs* 
+steps: text: {string: string} *object of key value pairs* 
 
-ingredients and steps are entered as a comma separated string and received as an array of strings, where each string in the array ends at where a comma was entered
 
 ### Blockers/Learning points ###
 - Generating a key for ingredients and steps list. I discovered that it is not best practise to generate an index that will not always be unique to the data that is being iterated. My solution was to restructure the databse so that any item that would be iterated has a unique id.

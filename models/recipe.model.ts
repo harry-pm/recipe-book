@@ -7,7 +7,7 @@ export class Recipe {
   @Column({ length: 256 })
   title: string;
   @Column("simple-json")
-  ingredients: {int: string};
+  ingredients: {ingredient: string};
   @Column("simple-json")
-  steps: {int: string};
+  steps: {step: string};
 }
